@@ -25,4 +25,8 @@
 
 - Run `npm run lint` to run code style validators
 
+## Hosting URL
+
+http://localhost:4200/
+http://localhost:9000/graphiql
 
