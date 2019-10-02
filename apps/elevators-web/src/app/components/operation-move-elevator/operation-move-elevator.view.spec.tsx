@@ -9,8 +9,7 @@ describe('OperationMoveElevatorView', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <MockedProvider addTypename={false} mocks={[]} resolvers={{}}>
-        <OperationMoveElevatorView currentFloor={0} isBusy={true} onChange={async () => {
-        }}/>
+        <OperationMoveElevatorView currentFloor={0} isBusy={true} onChange={jest.fn()}/>
       </MockedProvider>);
 
     expect(baseElement).toBeTruthy();
@@ -19,8 +18,7 @@ describe('OperationMoveElevatorView', () => {
   it('should set selection to busy and disabled', () => {
     const { getByRole } = render(
       <MockedProvider addTypename={false} mocks={[]} resolvers={{}}>
-        <OperationMoveElevatorView currentFloor={0} isBusy={true} onChange={async () => {
-        }}/>
+        <OperationMoveElevatorView currentFloor={0} isBusy={true} onChange={jest.fn()}/>
       </MockedProvider>);
 
     const selectElement = getByRole('combobox');
@@ -30,7 +28,7 @@ describe('OperationMoveElevatorView', () => {
   });
 
   it('should call onChange callback and disable select', async () => {
-    const mockCallback = jest.fn().mockReturnValueOnce(Promise.resolve());
+    const mockCallback = jest.fn().mockReturnValueOnce(Promise.resolve({}));
     const { getByText, container, getByRole } = render(
       <MockedProvider addTypename={false} mocks={[]} resolvers={{}}>
         <OperationMoveElevatorView currentFloor={0} isBusy={false} onChange={mockCallback}/>
