@@ -1,0 +1,9 @@
+subscription MonitorElevator($id: Int!) {
+  elevator(id: $id) {
+    direction
+    currentFloor
+    addressedFloor
+    isBusy
+    id
+  }
+}

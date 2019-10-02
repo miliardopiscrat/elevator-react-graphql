@@ -1,0 +1,24 @@
+{
+  "npmScope": "elevators",
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "elevators-web": {
+      "tags": []
+    },
+    "elevators-web-e2e": {
+      "tags": []
+    },
+    "elevators-api": {
+      "tags": []
+    },
+    "elevators": {
+      "tags": []
+    }
+  }
+}

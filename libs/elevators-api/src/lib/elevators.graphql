@@ -1,0 +1,9 @@
+query GetElevators {
+  elevators {
+    id
+    direction
+    currentFloor
+    addressedFloor
+    isBusy
+  }
+}

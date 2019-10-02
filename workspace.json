@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "projects": {
+    "elevators-web": {
+      "root": "apps/elevators-web",
+      "sourceRoot": "apps/elevators-web/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/elevators-web",
+            "index": "apps/elevators-web/src/index.html",
+            "main": "apps/elevators-web/src/main.tsx",
+            "polyfills": "apps/elevators-web/src/polyfills.ts",
+            "tsConfig": "apps/elevators-web/tsconfig.app.json",
+            "assets": [
+              "apps/elevators-web/src/favicon.ico",
+              "apps/elevators-web/src/assets"
+            ],
+            "styles": ["apps/elevators-web/src/styles.less"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/babel"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/elevators-web/src/environments/environment.ts",
+                  "with": "apps/elevators-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "elevators-web:build",
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "elevators-web:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/elevators-web/.eslintrc",
+            "tsConfig": [
+              "apps/elevators-web/tsconfig.app.json",
+              "apps/elevators-web/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/elevators-web/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/elevators-web/jest.config.js",
+            "tsConfig": "apps/elevators-web/tsconfig.spec.json",
+            "setupFile": "apps/elevators-web/jest.setup.ts"
+          }
+        }
+      }
+    },
+    "elevators-web-e2e": {
+      "root": "apps/elevators-web-e2e",
+      "sourceRoot": "apps/elevators-web-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/elevators-web-e2e/cypress.json",
+            "tsConfig": "apps/elevators-web-e2e/tsconfig.e2e.json",
+            "devServerTarget": "elevators-web:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "elevators-web:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/elevators-web-e2e/.eslintrc",
+            "tsConfig": ["apps/elevators-web-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/elevators-web-e2e/**"]
+          }
+        }
+      }
+    },
+    "elevators": {
+      "root": "apps/elevators",
+      "sourceRoot": "apps/elevators/src",
+      "projectType": "application",
+      "architect": {
+      }
+    },
+    "elevators-api": {
+      "root": "libs/elevators-api",
+      "sourceRoot": "libs/elevators-api/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "less",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "less"
+      },
+      "library": {
+        "style": "less",
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "elevators-web"
+}

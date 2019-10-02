@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: elevator-codechallenge
+server:
+  port: 9000
+
+graphql:
+  servlet:
+    subscriptions:
+      websocket:
+        path: /subscriptions
+logging:
+  level:
+    org:
+      springframework: ERROR

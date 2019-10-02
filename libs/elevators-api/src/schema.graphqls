@@ -1,0 +1,29 @@
+type Query {
+  elevators: [Elevator!]!
+  elevator(id: Int!): Elevator!
+}
+
+type Mutation {
+  moveElevator(id: Int!, floor: Int!): Boolean
+}
+
+type Subscription {
+  elevator(id: Int!): Elevator!
+}
+
+enum Direction {
+  UP,
+  DOWN,
+  NONE
+}
+
+type Elevator {
+  id: Int!
+  direction: Direction!
+  isBusy: Boolean!
+  currentFloor: Int!
+  addressedFloor: Int!
+}
+
+
+

@@ -1,0 +1,3 @@
+mutation MoveElevatorToFloor($id: Int!, $floor: Int!) {
+  moveElevator(id: $id, floor: $floor)
+}

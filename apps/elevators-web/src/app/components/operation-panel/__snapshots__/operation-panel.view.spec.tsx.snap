@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OperationPanelView should match content 1`] = `"<div class=\\"ant-card ant-card-bordered\\"><div class=\\"ant-card-head\\"><div class=\\"ant-card-head-wrapper\\"><div class=\\"ant-card-head-title\\">Elevator operations</div></div></div><div class=\\"ant-card-body\\">TEST_CONTENT</div></div>"`;
