@@ -12,7 +12,7 @@
 
 ## Serve application
 
-- Run `npm run serve` to run web application and mock server
+- Run `npm start` or `yarn start` to run web application and mock server
 - Run `npm run serve:app` to run just application
 - Run `npm run serve:mock` to run mock server
 

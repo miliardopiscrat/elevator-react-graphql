@@ -28,5 +28,4 @@ node_modules
 frontend-dest
 .gradle
 build/
-data/
 dependency-reduced-pom.xml
